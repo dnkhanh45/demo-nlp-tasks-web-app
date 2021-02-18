@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+#navbar {
+  background-color: lightgreen;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  display: block;
+  transition: top 0.3s;
+}
+
+#navbar dropdown {
+    position: fixed;
+    right: 0;
+}
+
+#navbar input:hover {background-color: pink;}
+
+.dropinput {
+  height: 60px;
+  width: 200px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  right: 0;
+}
+
+.dropdown-content input {
+  height: 60px;
+  width: 200px;
+  font-size: 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content button {
+  height: 60px;
+  width: 200px;
+  font-size: 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  //height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+body {
+	background-color: #DFCFBE;
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    padding: 10rem 2rem 50rem;
+    direction: ltr;
+    overflow: scroll;
+}
+</style>
+</head>
+<body>
+
+<div id="navbar">
+    <div class="dropdown" style="float: left;">
+        <form action="/gtts_pyttsx3_vi">
+            <input class="dropinput" type="submit" value="(VI)Text to speech" style="font-family: Courier New;"/>
+        </form>
+    </div>
+
+    <div class="dropdown" style="float: left;">
+        <form>
+            <input class="dropinput" type="submit" value="(VI)Extract text" style="font-family: Courier New;"/>
+        </form>
+        <div class="dropdown-content">
+            <form action="/pytesseract_vi">
+                <input type="submit" value="Pytesseract" style="font-family: Florence, cursive;color:red; border:none;"/>
+            </form>
+            <form action="/speechrecognition_vi">
+                <input type="submit" value="Speech recognition" style="font-family: Florence, cursive;color:red; border:none;"/>
+            </form>
+        </div>
+    </div>
+
+    <div class="dropdown" style="float: left;">
+        <form>
+            <input class="dropinput" type="submit" value="(VI)Text analysis" style="font-family: Courier New;"/>
+        </form>
+        <div class="dropdown-content">
+            <form action="/pyvi_vi">
+                <input type="submit" value="Pyvi" style="font-family: Florence, cursive;color:red; border:none;"/>
+            </form>
+            <form action="/underthesea_vi">
+                <input type="submit" value="Underthesea" style="font-family: Florence, cursive;color:red; border:none;"/>
+            </form>
+            <form action="/stanzavi_vi">
+                <input type="submit" value="Stanza" style="font-family: Florence, cursive;color:red; border:none;"/>
+            </form>
+        </div>
+    </div>
+
+    <div class="dropdown" style="float: right;">
+        <form action="/gtts_pyttsx3_en">
+            <input class="dropinput" style="font-family: Courier New;" value="(EN)Text to speech" type="submit"/>
+        </form>
+    </div>
+
+    <div class="dropdown" style="float: right;">
+        <form>
+            <input class="dropinput" style="font-family: Courier New;" value="(EN)Extract text" type="submit"/>
+        </form>
+        <div class="dropdown-content">
+        	<form action="/pytesseract_en">
+                <input type="submit" value="Pytesseract" style="font-family: Florence, cursive;color:red; border:none;"/>
+            </form>
+            <form action="/speechrecognition_en">
+                <input type="submit" value="Speech recognition" style="font-family: Florence, cursive;color:red; border:none;"/>
+            </form>
+        </div>
+    </div>
+
+    <div class="dropdown" style="float: right;">
+        <form>
+            <input class="dropinput" style="font-family: Courier New;" value="(EN)Text analysis" type="submit"/>
+        </form>
+        <div class="dropdown-content">
+        	<form action="/spacy_en">
+                <input type="submit" value="SpaCy" style="font-family: Florence, cursive;color:red; border:none;"/>
+            </form>
+            <form action="/nltk_en">
+                <input type="submit" value="NLTK" style="font-family: Florence, cursive;color:red; border:none;"/>
+            </form>
+            <form action="/textblob_en">
+                <input type="submit" value="TextBlob" style="font-family: Florence, cursive;color:red; border:none;"/>
+            </form>
+            <form action="/gensim_en">
+                <input type="submit" value="Gensim" style="font-family: Florence, cursive;color:red; border:none;"/>
+            </form>
+            <form action="/stanzaen_en">
+                <input type="submit" value="Stanza" style="font-family: Florence, cursive;color:red; border:none;"/>
+            </form>
+            <form action="/transformers_en">
+                <input type="submit" value="Transformers" style="font-family: Florence, cursive;color:red; border:none;"/>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="dropdown" style="position: fixed; z-index: 1; bottom: 2em; right: 2em;">
+	<form action="/home">
+		<input class="dropinput" type="submit" value="Home" style="font-family: Courier New; background-color: #d034eb; width: 100px"/>
+    </form>
+        <div class="dropdown-content" style="bottom: 0; right: 100px; width: 280px;">
+            <center><h3>Tools and libraries:</h3></center>
+            <ul>
+            	<li>Pytesseract (vi, en)</li>
+                <li>Speech recognition (vi, en)</li>
+                <li>GTTS (vi, en)</li>
+                <li>Pyttsx3 (vi, en)</li>
+                <li>Stanza (StanfordNLP) (vi, en)</li>
+                <li>Pyvi (vi)</li>
+                <li>Underthesea (vi)</li>
+                <li>SpaCy (en)</li>
+                <li>NLTK (en)</li>
+                <li>TextBlob (en)</li>
+                <li>Gensim (en)</li>
+                <li>Transformers (en)</li>
+           	</ul>
+        </div>
+    </div>
+
+<div>
+    <h1>GTTS and Pyttsx3 (vietnamese)</h1>
+</div>
+<div>
+    <h5>Enter your text:</h5>
+</div>
+
+<div>
+    <form method="POST" action="/gtts_pyttsx3_vi">
+        <textarea rows="10" cols="195" name="text"></textarea>
+        <p>
+            <button type="button" onclick="history.back()">Back</button>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+</div>
+
+
+<script>
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-60px";
+  }
+  prevScrollpos = currentScrollPos;
+}
+
+</script>
+
+</body>
+</html>
